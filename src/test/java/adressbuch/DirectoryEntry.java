@@ -52,12 +52,6 @@ public class DirectoryEntry implements Comparable<DirectoryEntry>{
         this.mailAddress = mailAddress;
     }
 
-    /*
-    public void sortDirectoryEntry(Directory directory) {
-        Collections.sort(directory);
-    }
-
-     */
 
     @Override
     public int compareTo(DirectoryEntry otherEntry) {

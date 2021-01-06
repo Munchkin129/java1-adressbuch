@@ -1,6 +1,8 @@
 package adressbuch;
 
-public class DirectoryEntry {
+import java.util.*;
+
+public class DirectoryEntry implements Comparable<DirectoryEntry>{
 
     /**
      * attributes
@@ -48,5 +50,26 @@ public class DirectoryEntry {
 
     public void setMailAddress(String mailAddress) {
         this.mailAddress = mailAddress;
+    }
+
+    /*
+    public void sortDirectoryEntry(Directory directory) {
+        Collections.sort(directory);
+    }
+
+     */
+
+    @Override
+    public int compareTo(DirectoryEntry otherEntry) {
+        String ownLastName = getLastName();
+        String otherLastName = otherEntry.getLastName();
+        char firstLetterOfOwnLastName = ownLastName.charAt(0);
+        char firstLetterOfOtherLastName = otherLastName.charAt(0);
+        if (firstLetterOfOwnLastName < firstLetterOfOtherLastName) {
+            return -1;
+        } else if (firstLetterOfOwnLastName > firstLetterOfOtherLastName) {
+            return 1;
+        }
+        return 0; //Platz um zweiten, dritten Buchstaben usw zu sortieren
     }
 }

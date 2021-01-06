@@ -1,5 +1,6 @@
 package adressbuch;
 
+
 public class DirectoryEntry implements Comparable<DirectoryEntry>
 {
 
@@ -51,18 +52,20 @@ public class DirectoryEntry implements Comparable<DirectoryEntry>
         this.mailAddress = mailAddress;
     }
 
+
+
     @Override
-    public int compareTo(DirectoryEntry otherDirectoryEntry) {
+    public int compareTo(DirectoryEntry o) {
         String ownLastName = getLastName();
-        String otherLastName = otherDirectoryEntry.getLastName();
+        String otherLastName = o.getLastName();
         char firstLetterOfOwnLastName = ownLastName.charAt(0);
         char firstLetterOfOtherLastName = otherLastName.charAt(0);
-        if (firstLetterOfOwnLastName == firstLetterOfOtherLastName) {
-            return 0;
+        if (firstLetterOfOwnLastName < firstLetterOfOtherLastName) {
+            return -1;
         } else if (firstLetterOfOwnLastName > firstLetterOfOtherLastName) {
             return 1;
-        } else {
-            return -1;
         }
+        return 0;
     }
+
 }

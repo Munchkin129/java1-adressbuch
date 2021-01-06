@@ -1,7 +1,6 @@
 package adressbuch;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 
@@ -17,20 +16,51 @@ public class TestDirectory {
 
         System.out.println("Anzahl der Einträge: " + test.size());
 
+        for (int i = 0; i < test.size(); i++)
+            System.out.println(test.get(i).getFirstName() + " " + test.get(i).getLastName() + " " + test.get(i).getMailAddress());
+
+        for (DirectoryEntry count : test) System.out.println(count.getFirstName() + " " + count.getLastName() + " " + count.getMailAddress());
+
+
+        Directory var1 = new Directory();
+        DirectoryEntry var2 = new DirectoryEntry("Dirk","Hofmann","dirk.hofmann@fh-erfurt.de");
+
+        var1.printOut222();
+        var1.addDirectoryEntry(new DirectoryEntry("Dirk","Hofmann","dirk.hofmann@fh-erfurt.de"));
+
+        //for (DirectoryEntry count : Adressbuch) System.out.println(count.getFirstName() + " " + count.getLastName() + " " + count.getMailAddress());
+
+
         /*
         System.out.println(test.get(0).compareTo((test.get(1))));
         System.out.println(test.get(0).compareTo(test.get(2)));
         System.out.println(test.get(0).compareTo(test.get(3)));
         System.out.println(test.get(1).compareTo(test.get(2)));*/
 
-        for (int i = 0; i < test.size(); i++)
-            System.out.println(test.get(i).getFirstName() + " " + test.get(i).getLastName() + " " + test.get(i).getMailAddress());
 
+
+        //Collections.sort(test);
+
+        String hofmann = "Hofmann";
+        String mittermeier = "Mittermeier";
+
+        char firstLetterHofmann = hofmann.charAt(0);
+        char firstLetterMittermeier = mittermeier.charAt(0);
+
+        if (firstLetterHofmann > firstLetterMittermeier)
+        {
+            System.out.println("H > M");
+        } else if (firstLetterHofmann < firstLetterMittermeier) {
+            System.out.println("H < M");
+        }
+
+
+        /*
         DirectoryEntry dirk = new DirectoryEntry("Dirk","Hofmann","dirk.hofmann@fh-erfurt.de");
         DirectoryEntry matze = new DirectoryEntry("Matthias","Gabel","matthias.gabel@fh-erfurt.de");
         int result = dirk.compareTo(matze);
         System.out.println(result);
-
+        */
     }
 
 
